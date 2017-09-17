@@ -1,3 +1,6 @@
+<?php
+    require_once("config/config.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,21 +22,29 @@
             </a>
             <nav class="main_nav">
                 <ol>
-                    <li>
-                        <a href="index.php">Главная</a>                    
-                    </li>
+<?php
+    $query="SELECT * FROM maintexts WHERE showhide = 'show' ORDER BY id";
+
+    $result = mysqli_query($dbcon, $query);
+
+    if(!$result){
+        exit($query);
+    }
+    while($tbl_arr=mysqli_fetch_array($result)){
+    ?>
+                <li>
+                    <a href="index.php?url=<?php echo $tbl_arr['url']?>"><?php echo $tbl_arr['name']?></a>                    
+                </li>
+        <?php
+    }
+?> 
                     <li>
                         <a href="news.php">Новости</a>
                     </li>
                     <li>
                         <a href="our_work.php">Наша работы</a>                    
                     </li>
-                    <li>
-                        <a href="about_us.php">О нас</a>
-                    </li>
-                    <li>
-                        <a href="contacts.php">Контакты</a>
-                    </li>
+                    
                 </ol>
             </nav>
         </header>
@@ -86,71 +97,11 @@
         
         
         
-        <main class="main_content">
+        <div class="main_content">
             
             
-             <article class="main_content_block">
-               
-                <div class="mcb_img_about_us">
-                    <img src="imgs/contacts.png" alt="">  
-                </div>
+            <article class="main_content_block">
+           
 
-                <h1 class="mcb_head" >
-                    контакты          
-                </h1>
-
-
-
-                <p class="mcb_article">
-                
-                    Акционерное общество «СтройТрансНефтеГаз» (АО «СТНГ»)Ленинградский пр., д. 39, стр. 80,  БЦ «SkyLight», г. Москва,Российская Федерация, 125167Тел.: +7 495 741-48-17
-Факс: +7 495 741-48-18
-E-mail: info@stg.ru
-                </p>
-            </article>
-            
-            
-        </main>
+           
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <footer class="main_footer">
-            <nav class="main_nav_footer">
-                <ol>
-                    <li>
-                        <a href="#">Главная</a>                    
-                    </li>
-                    <li>
-                        <a href="#">Новости</a>
-                    </li>
-                    <li>
-                        <a href="#">Наша продукция</a>                    
-                    </li>
-                    <li>
-                        <a href="#">О нас</a>
-                    </li>
-                    <li>
-                        <a href="#">Контакты</a>
-                    </li>
-                </ol>
-            </nav>
-        </footer>
-        
-        
-        
-        
-        
-        
-    </div>
-</body>
-</html>
