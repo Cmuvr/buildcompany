@@ -7,6 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="media/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="Style/style.css">
     <title>Главная страница</title>
 </head>
@@ -21,6 +22,9 @@
             
             <nav class="main_nav">
                 <ol>
+				 <li>
+                    <a href="register.php">Регистрация</a>                    
+                </li>
 <?php
     require_once("config/connect_menu.php");
 ?>                     
