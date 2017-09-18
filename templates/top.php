@@ -23,13 +23,8 @@
                 <ol>
 <?php
     require_once("config/connect_menu.php");
-?> 
-                    <li>
-                        <a href="news.php">Новости</a>
-                    </li>
-                    <li>
-                        <a href="our_work.php">Наша работы</a>
-                    </li>                    
+?>                     
+                                        
                 </ol>
             </nav> <!--END main_nav-->
         </header> <!--END main_header-->
@@ -74,6 +69,6 @@
         
         
         
-        
         <div class="main_content">           
-            <article class="main_content_block">
+            
+        

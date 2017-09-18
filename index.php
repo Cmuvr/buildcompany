@@ -21,23 +21,60 @@
         exit("не проходит url");
     }
 
-//сохраняем ассоциативный массив выборки в переменную    
-    $tbl_arr=mysqli_fetch_array($result);
+
+    while($tbl_arr=mysqli_fetch_array($result))
+    {
+
+        if($tbl_arr['url']=="our_work"){
+ ?>     
+       
+               
+        <article class="mcb_our_work">
+            <h1 class="mcb_our_work_head" >
+                <?php echo $tbl_arr['title']; /* заголовок статьи */ ?> 
+            </h1>
+
+            <div class="mcb_our_work_img">
+                <img src="<?php echo $tbl_arr['img']  /* картинка статьи*/ ?>" alt="">  
+            </div>
+
+            <p class="mcb_our_work_article">
+                <?php echo $tbl_arr['body']  /* текст статьи */  ?>
+            </p>
+        </article>    
+                
+                    
+                            
+ <?php  
+        }
+        else
+        {
+?> 
+
+
+        <article class="main_content_block">      
+            <h1 class="mcb_head">
+               <?php echo $tbl_arr['title']; /* заголовок статьи */ ?> 
+            </h1>
+
+            <div class="mcb_img">
+                <img src="<?php echo $tbl_arr['img']  /* картинка статьи*/ ?>" alt="img1">  
+            </div>                      
+
+            <p class="mcb_article">
+                <?php echo $tbl_arr['body']  /* текст статьи */  ?>
+            </p>  
+        </article><!--END main_content_block-->
+
+
+<?php  
+        }
+    }
 ?>
 
 
 
-<h1 class="mcb_head">
-   <?php echo $tbl_arr['name']; /* заголовок статьи */ ?> 
-</h1>
-     
-<div class="mcb_img">
-    <img src="<?php echo $tbl_arr['img']  /* картинка статьи*/ ?>" alt="img1">  
-</div>                      
 
-<p class="mcb_article">
-    <?php echo $tbl_arr['body']  /* текст статьи */  ?>
-</p>  
 
             
 <?php
