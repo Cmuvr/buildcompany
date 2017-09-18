@@ -1,6 +1,8 @@
 <?php
+//подключение config.php
     require_once("config/config.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,55 +11,32 @@
     <title>Главная страница</title>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper">         
        
-       
-       
-       
-       
-       
-       <header class="main_header">
+       <header class="main_header"> 
+           
             <a href="#">
                 <img src="imgs/main_header.jpg" alt="">
             </a>
+            
             <nav class="main_nav">
                 <ol>
 <?php
-    $query="SELECT * FROM maintexts WHERE showhide = 'show' ORDER BY id";
-
-    $result = mysqli_query($dbcon, $query);
-
-    if(!$result){
-        exit($query);
-    }
-    while($tbl_arr=mysqli_fetch_array($result)){
-    ?>
-                <li>
-                    <a href="index.php?url=<?php echo $tbl_arr['url']?>"><?php echo $tbl_arr['name']?></a>                    
-                </li>
-        <?php
-    }
+    require_once("config/connect_menu.php");
 ?> 
                     <li>
                         <a href="news.php">Новости</a>
                     </li>
                     <li>
-                        <a href="our_work.php">Наша работы</a>                    
-                    </li>
-                    
+                        <a href="our_work.php">Наша работы</a>
+                    </li>                    
                 </ol>
-            </nav>
-        </header>
+            </nav> <!--END main_nav-->
+        </header> <!--END main_header-->
         
+     
         
-        
-        
-        
-        
-        
-        
-        
-        
+   
         
         
         <aside class="main_news">
@@ -90,18 +69,11 @@
                 </article>
             </section>
         </aside>
-        
-        
-        
-        
-        
-        
-        
-        <div class="main_content">
             
-            
+        
+        
+        
+        
+        
+        <div class="main_content">           
             <article class="main_content_block">
-           
-
-           
-        

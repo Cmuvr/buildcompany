@@ -1,7 +1,7 @@
-            </article>
-</div>
+            </article><!--END main_content_block-->
+        </div> <!--END main_content-->
         
-        
+       
         
         
         
@@ -10,37 +10,23 @@
             <nav class="main_nav_footer">
                 <ol>
 <?php
-    $query="SELECT * FROM maintexts WHERE showhide = 'show' ORDER BY id";
-
-    $result = mysqli_query($dbcon, $query);
-
-    if(!$result){
-        exit($query);
-    }
-    while($tbl_arr=mysqli_fetch_array($result)){
-    ?>
-                <li>
-                    <a href="index.php?url=<?php echo $tbl_arr['url']?>"><?php echo $tbl_arr['name']?></a>                    
-                </li>
-        <?php
-    }
+    require_once("config/connect_menu.php");
 ?> 
                     <li>
                         <a href="#">Новости</a>
                     </li>
                     <li>
                         <a href="#">Наша продукция</a>                    
-                    </li>
-                    
+                    </li>                    
                 </ol>
-            </nav>
-        </footer>
+            </nav><!--END main_nav_footer-->
+        </footer><!--END main_footer-->
         
         
         
         
         
         
-    </div>
+     </div> <!--END wrapper-->   
 </body>
 </html>
