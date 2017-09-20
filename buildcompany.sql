@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Сен 18 2017 г., 21:46
+-- Время создания: Сен 20 2017 г., 21:55
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.6.3
 
@@ -19,6 +19,22 @@ SET time_zone = "+00:00";
 --
 -- База данных: `buildcompany`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `articles`
+--
+
+CREATE TABLE IF NOT EXISTS `articles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` tinytext NOT NULL,
+  `body` text NOT NULL,
+  `picture` tinytext NOT NULL,
+  `putdate` date NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

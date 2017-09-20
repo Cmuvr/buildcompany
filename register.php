@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //подключение top.php
     require_once("templates/top.php");     
 	if($_POST){
@@ -58,9 +58,9 @@
 		}
 		
 		$arr_user=mysqli_fetch_array($usr); //формируем ассоциативный массив
-		
+			
 		if($arr_user[0]){ //если пользователь сюда добавился при выборке, то выводим ошибку
-			$error[]="Такой email уже есть в базе";
+			$error[]="Такой email уже есть в базе!";
 		}
 		
 		
@@ -119,7 +119,7 @@
     <label for="exampleInputPassword2">Password</label>
     <input name="pass_again" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
   </div> 
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Вход</button>
 </form>
 
 

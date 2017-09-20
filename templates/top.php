@@ -1,5 +1,6 @@
 <?php
 //подключение config.php
+	session_start();
     require_once("config/config.php");
 ?>
 
@@ -12,8 +13,50 @@
     <title>Главная страница</title>
 </head>
 <body>
-    <div class="wrapper">         
-       
+    <div class="wrapper"> 
+
+
+
+
+	
+
+
+	
+<?php
+	if($_SESSION['id']){
+		
+?>
+	<a href='logout.php'>Выход</a>
+<?php		
+	} else {
+?> 
+	<form action="login.php" method="post" class="form-inline">
+		<div class="form-group">
+			<label class="sr-only" for="exampleInputEmail3">Имя</label>
+			<input name="name" type="text" class="form-control" id="exampleInputEmail3" placeholder="name" >
+		</div>
+		<div class="form-group">
+			<label class="sr-only" for="exampleInputPassword3">Пароль</label>
+			<input name="pass" type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox"> Remember me
+			</label>
+		</div>
+	<button type="submit" class="btn btn-default">Войти</button>
+	</form>
+<?php
+	}
+?>
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
        <header class="main_header"> 
            
             <a href="#">
@@ -22,10 +65,20 @@
             
             <nav class="main_nav">
                 <ol>
-				 <li>
+<?php
+	if($_SESSION['id']){
+?>
+				<li>
+                    <a href="cabinet.php">Кабинет</a>                    
+                </li>
+<?php
+	} else {
+?> 
+				<li>
                     <a href="register.php">Регистрация</a>                    
                 </li>
 <?php
+	}
     require_once("config/connect_menu.php");
 ?>                     
                                         

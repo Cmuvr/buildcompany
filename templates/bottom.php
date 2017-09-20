@@ -9,7 +9,7 @@
             <nav class="main_nav_footer">
                 <ol>
 <?php
-    require_once("config/connect_menu.php");
+    require("config/connect_menu.php");
 ?>                               
                 </ol>
             </nav><!--END main_nav_footer-->
