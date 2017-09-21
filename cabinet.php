@@ -8,16 +8,20 @@
 		// ОБРАБОТКА ЗАГРУЗКИ КАРТИНКИ НА СЕРВЕР
 		
 		if($_POST){
-			$p_name=$_POST['name']; //читаем имя картинки
+			$p_name=$_POST['name']; //читаем название статьи
 			$error=[]; // массив ошибок
 			
-			if(is_uploaded_file($_FILES['picture']['tmp_name'])){ 
+         
+            
+			if(is_uploaded_file($_FILES['picture']['tmp_name'])){ //Определяем, был ли файл загружен при помощи HTTP POST
 			
-				$dir=$_SERVER['DOCUMENT_ROOT'].'/media/uploads/';
-				if(move_uploaded_file($_FILES['picture']['tmp_name'], $dir.$_FILES['picture']['name'])){
-					$pic=$_FILES['picture']['name'];
+				$dir=$_SERVER['DOCUMENT_ROOT'].'/media/uploads/'; //путь к папке где будет хранится загруженная пользователем картинка
+                
+				if(move_uploaded_file($_FILES['picture']['tmp_name'], $dir.$_FILES['picture']['name'])){ //Проверяет выполннение перемещения загруженного файла в новое место, где параметрами являются путь к файлу где он хранился сразу после загрузки (он расчеблен попиксельно) и вторым параметром является путь к файлу куда его мы перемещаем для длительного храниения. Оно и выполняется если можно переместить
+					$pic=$_FILES['picture']['name']; //тогда создаем переменную где храним имя картинки которую получаем через форму 
+                    
 				}else{
-					echo $dir.$_FILES['picture']['name'];
+					echo "Ошибка загрузки файла";
 				};
 				
 				$_query="INSERT INTO pictures VALUES(
@@ -33,9 +37,11 @@
 					exit($query);
 				}
 ?>
+<!--
 	<script>
 		document.location.href='cabinet.php';
 	</script>
+-->
 
 <?php
 			}else {

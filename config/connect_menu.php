@@ -1,12 +1,16 @@
 <?php
    // $query="SELECT name FROM maintexts WHERE showhide = 'show' ORDER BY id";
+?>  
     
+<?php   
     $query="SELECT DISTINCT name, url FROM maintexts";
     $result = mysqli_query($dbcon, $query);
 
     if(!$result){
         exit("");
     }
+
+    
 
     while($tbl_arr=mysqli_fetch_array($result))
         {
@@ -19,3 +23,6 @@
 <?php 
         }
 ?>
+                <li>
+                    <a href="articles.php">Статьи пользователей</a>
+                </li>

@@ -26,7 +26,16 @@
 	if($_SESSION['id']){
 		
 ?>
+
+
+
+
 	<a href='logout.php'>Выход</a>
+	
+	
+	
+	
+	
 <?php		
 	} else {
 ?> 
@@ -60,27 +69,28 @@
        <header class="main_header"> 
            
             <a href="#">
-                <img src="imgs/main_header.jpg" alt="">
+                <img src="media/imgs/main_header.jpg" alt="">
             </a>
             
             <nav class="main_nav">
                 <ol>
+                
 <?php
-	if($_SESSION['id']){
+    require_once("config/connect_menu.php");
+    if($_SESSION['id']){
 ?>
 				<li>
                     <a href="cabinet.php">Кабинет</a>                    
                 </li>
 <?php
-	} else {
+    } else  {
 ?> 
 				<li>
                     <a href="register.php">Регистрация</a>                    
                 </li>
 <?php
-	}
-    require_once("config/connect_menu.php");
-?>                     
+            }  
+?>
                                         
                 </ol>
             </nav> <!--END main_nav-->
